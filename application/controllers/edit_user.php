@@ -30,8 +30,8 @@ class edit_user extends CI_Controller
 			'address' => $this->input->post('address')
 	);
 	 $this->update_model->upgradeentry($datum);
-     redirect('/ViewEdit_controller', 'refresh');
-	 
+     // redirect('/ViewEdit_controller', 'refresh');
+	 $this->load->view('redirect','refresh');
    }
    else
    {
