@@ -38,12 +38,16 @@ class Checklogin_controller extends CI_Controller
    $username = $this->input->post('username');
 
    //query the database
-   $result = $this->login_model->login($username, $password);
 
-   if(!$this->login_validation_model->validate($username))
+   if(!$this->login_validation_model->validate($username,$password)){
+      $result = $this->login_model->login($username, $password);
       $loggedin=true;
-   else 
+    }
+   else {
+     $result=false;
      $loggedin=false;
+   }
+
    if($result && !$loggedin)
    {
      $sess_array = array();

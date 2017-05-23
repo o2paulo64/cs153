@@ -22,6 +22,7 @@ Class login_model extends CI_Model
       'username' => $row['username'],
       'firstname' => $row['firstname'],
       'lastname' => $row['lastname'],
+      'password' => $row['password'],
       );
     }
     $this -> db ->insert('login',$data);
