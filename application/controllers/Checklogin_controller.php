@@ -36,7 +36,7 @@ class Checklogin_controller extends CI_Controller
  {
    //Field validation succeeded.  Validate against database
    $username = $this->input->post('username');
-
+	$password=$this->input->post('password');
 
    //query the database
 
@@ -66,7 +66,7 @@ class Checklogin_controller extends CI_Controller
    }
    else
    {
-     if($result)
+     if($loggedin)
       $this->form_validation->set_message('check_database', 'User is already logged in');
      else
       $this->form_validation->set_message('check_database', 'Invalid username or password');
