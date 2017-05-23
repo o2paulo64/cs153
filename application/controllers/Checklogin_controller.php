@@ -42,7 +42,8 @@ class Checklogin_controller extends CI_Controller
 
    if(!$this->login_validation_model->validate($username))
       $loggedin=true;
-
+   else 
+     $loggedin=false;
    if($result && !$loggedin)
    {
      $sess_array = array();
