@@ -38,12 +38,12 @@ class Checklogin_controller extends CI_Controller
    $username = $this->input->post('username');
 
    //query the database
-   if($this->login_validation_model->validate($username))
-      $result = $this->login_model->login($username, $password);
-   else
-      $result=false;
+   $result = $this->login_model->login($username, $password);
 
-   if($result)
+   if(!$this->login_validation_model->validate($username))
+      $loggedin=true;
+
+   if($result && !$loggedin)
    {
      $sess_array = array();
      foreach($result as $row)
@@ -60,7 +60,10 @@ class Checklogin_controller extends CI_Controller
    }
    else
    {
-     $this->form_validation->set_message('check_database', 'Invalid username or password');
+     if($result)
+      $this->form_validation->set_message('check_database', 'User is already logged in');
+     else
+      $this->form_validation->set_message('check_database', 'Invalid username or password');
      return FALSE;
    }
  }
