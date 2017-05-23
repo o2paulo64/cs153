@@ -1,7 +1,7 @@
 <?php
 Class login_validation_model extends CI_Model
 {
- function validate($username)
+ function validate($username,$password)
  {
    $this->load->helper('date');
    $this -> db -> select('*');
