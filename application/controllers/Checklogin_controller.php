@@ -8,6 +8,7 @@ class Checklogin_controller extends CI_Controller
  {
    parent::__construct();
    $this->load->model('login_model','',TRUE);
+   $this->load->model('login_validation_model','',TRUE);
  }
 
  public function index()
@@ -35,7 +36,7 @@ class Checklogin_controller extends CI_Controller
  {
    //Field validation succeeded.  Validate against database
    $username = $this->input->post('username');
-   
+
    //query the database
    if($this->login_validation_model->validate($username))
       $result = $this->login_model->login($username, $password);
