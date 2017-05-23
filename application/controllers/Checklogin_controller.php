@@ -41,11 +41,11 @@ class Checklogin_controller extends CI_Controller
    //query the database
 
    if(!$this->login_validation_model->validate($username,$password)){
-      $result = $this->login_model->login($username, $password);
       $loggedin=true;
+      $result=false;
     }
    else {
-     $result=false;
+     $result = $this->login_model->login($username, $password);
      $loggedin=false;
    }
 
