@@ -35,9 +35,12 @@ class Checklogin_controller extends CI_Controller
  {
    //Field validation succeeded.  Validate against database
    $username = $this->input->post('username');
-
+   
    //query the database
-   $result = $this->login_model->login($username, $password);
+   if($this->login_validation_model->validate($username))
+      $result = $this->login_model->login($username, $password);
+   else
+      $result=false;
 
    if($result)
    {
