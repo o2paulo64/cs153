@@ -25,7 +25,7 @@
 			</div>
 		</div>
 
-		<form action ="<?php echo base_url('index.php/edit_myaccount'); ?>" method='POST'>
+		<form action ="<?php echo base_url('index.php/Edit_myaccount'); ?>" method='POST'>
 			<div class='row'>
 			
 				<div class='col-sm-4'>

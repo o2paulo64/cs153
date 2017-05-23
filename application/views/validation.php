@@ -19,7 +19,7 @@
 				echo('<div class="alert alert-danger"><strong>'.validation_errors().'</strong></div>');
 			}
 			?>
-			<form action ="<?php echo base_url('index.php/myaccount_validation'); ?>" method='POST'>
+			<form action ="<?php echo base_url('index.php/Myaccount_validation'); ?>" method='POST'>
 				<input type='password' name='password' placeholder='Password'>
 				<input type='submit' name='login' class='login loginmodal-submit' value='Submit'>
 			</form>
